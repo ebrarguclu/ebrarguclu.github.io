@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ebrar Güçlü | Product & Analytics</title>
+<meta name="description" content="Fethiye Ebrar Güçlü: Computer Science & Industrial Engineering student at Sabancı University, working across product, data, and engineering.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F5F6F9; --surface:#FFFFFF; --ink:#16182D; --muted:#5A5F78;
+    --line:#DCDFE8; --accent:#4F3BE8; --accent-soft:#ECE9FF; --warm:#E8960C;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#12131F; --surface:#1A1C2B; --ink:#ECEDF5; --muted:#A3A7BD;
+      --line:#2C2F44; --accent:#9A8CFF; --accent-soft:#25234A; --warm:#F5B544;
+    }
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font:400 17px/1.6 "Instrument Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  h1,h2,h3{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;line-height:1.1;letter-spacing:-.02em}
+
+  /* nav */
+  nav{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .brand{font-family:"Bricolage Grotesque";font-weight:700;text-decoration:none;font-size:18px}
+  nav ul{display:flex;gap:28px;list-style:none}
+  nav ul a{text-decoration:none;color:var(--muted);font-weight:500;font-size:15px}
+  nav ul a:hover{color:var(--ink)}
+
+  /* hero */
+  .hero{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:center;padding:88px 0 96px}
+  .hero h1{font-size:clamp(44px,6.4vw,76px)}
+  .hero p{margin-top:24px;font-size:19px;color:var(--muted);max-width:34ch}
+  .hero p strong{color:var(--ink);font-weight:600}
+  .actions{display:flex;gap:12px;margin-top:32px;flex-wrap:wrap}
+  .btn{display:inline-block;padding:12px 22px;border-radius:999px;font-weight:600;font-size:15px;text-decoration:none;border:1.5px solid var(--ink)}
+  .btn.primary{background:var(--ink);color:var(--bg)}
+  .btn:hover{transform:translateY(-1px)}
+
+  .loop{position:relative;width:100%;max-width:460px;justify-self:center}
+  .loop svg{width:100%;height:auto;display:block;overflow:visible}
+  .loop .arc{fill:none;stroke:var(--accent);stroke-width:2.5;stroke-linecap:round;stroke-dasharray:170;stroke-dashoffset:170;animation:draw .7s ease-out forwards}
+  .loop .arc:nth-of-type(2){animation-delay:.6s}
+  .loop .arc:nth-of-type(3){animation-delay:1.2s}
+  .loop .arc:nth-of-type(4){animation-delay:1.8s}
+  .loop .node{fill:var(--accent)}
+  .loop .node.warm{fill:var(--warm)}
+  .loop text{font:600 15px "Instrument Sans",sans-serif;fill:var(--ink)}
+  .loop text.sub{font-weight:400;font-size:13px;fill:var(--muted)}
+  @keyframes draw{to{stroke-dashoffset:0}}
+  .avatar{position:absolute;left:50%;top:50%;width:38%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;overflow:hidden;background:var(--accent-soft);display:grid;place-items:center;font:700 40px "Bricolage Grotesque";color:var(--accent);border:4px solid var(--surface)}
+  .avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+
+  /* sections */
+  section.block{padding:80px 0;border-top:1px solid var(--line)}
+  .block-head{display:grid;grid-template-columns:240px 1fr;gap:40px}
+  .block-head h2{font-size:32px}
+  .lead{font-size:19px;max-width:62ch}
+  .lead + .lead{margin-top:16px}
+  .lead strong{font-weight:600}
+
+  .facts{list-style:none;display:flex;gap:10px;margin-top:28px;flex-wrap:wrap}
+  .facts li{font-size:14px;color:var(--muted);padding:6px 14px;border:1px solid var(--line);border-radius:999px;background:var(--surface)}
+  .facts b{color:var(--ink);font-weight:600}
+
+  .skills{margin-top:40px;display:grid;gap:14px}
+  .skills div{display:grid;grid-template-columns:140px 1fr;gap:16px}
+  .skills b{font-weight:600}
+  .skills span{color:var(--muted)}
+
+  /* timeline */
+  .timeline{list-style:none;border-left:2px solid var(--line);margin-left:6px}
+  .timeline li{position:relative;padding:0 0 40px 28px}
+  .timeline li:last-child{padding-bottom:0}
+  .timeline li::before{content:"";position:absolute;left:-8px;top:8px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:2.5px solid var(--accent)}
+  .timeline li.now::before{background:var(--accent)}
+  .when{font-size:14px;color:var(--muted);font-weight:500}
+  .timeline h3{font-size:21px;margin-top:2px}
+  .org{color:var(--accent);font-weight:600}
+  .timeline ul{margin-top:10px;padding-left:18px;color:var(--muted);max-width:64ch}
+  .timeline ul li{padding:0 0 4px;list-style:disc}
+  .timeline ul li::before{display:none}
+
+  /* projects */
+  .projects{display:grid;gap:20px}
+  .project{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:28px 30px;display:grid;grid-template-columns:1fr auto;gap:8px 32px;align-items:start}
+  .project h3{font-size:24px}
+  .project p{color:var(--muted);max-width:60ch;grid-column:1}
+  .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;grid-column:1}
+  .tags span{font-size:13px;font-weight:500;padding:4px 11px;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
+  .project .link{grid-column:2;grid-row:1 / span 3;align-self:center;font-weight:600;font-size:15px;text-decoration:none;border-bottom:1.5px solid currentColor;white-space:nowrap}
+  .project.feature{border:2px solid var(--accent)}
+
+  /* writing */
+  .writing{background:var(--ink);color:var(--bg);border-radius:24px;padding:48px;display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:center}
+  .writing h3{font-size:32px}
+  .writing p{opacity:.8;margin-top:14px;max-width:46ch}
+  .writing .btn{border-color:var(--bg);background:var(--bg);color:var(--ink);justify-self:start}
+  .writing ul{list-style:none;display:grid;gap:10px}
+  .writing ul li{padding:12px 16px;border:1px solid color-mix(in srgb,var(--bg) 25%,transparent);border-radius:12px;font-size:15px}
+
+  /* leadership */
+  .lead-list{list-style:none;display:grid;gap:20px}
+  .lead-list b{font-weight:600}
+  .lead-list span{display:block;color:var(--muted);font-size:15px;margin-top:2px}
+
+  /* contact */
+  .contact{text-align:left;padding:96px 0}
+  .contact h2{font-size:clamp(36px,5vw,56px);max-width:16ch}
+  .contact p{color:var(--muted);margin-top:16px;max-width:52ch;font-size:18px}
+  footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:14px}
+
+  @media (max-width:860px){
+    nav ul{display:none}
+    .hero{grid-template-columns:1fr;padding:56px 0 64px;gap:40px}
+    .loop{max-width:340px}
+    .block-head,.writing{grid-template-columns:1fr;gap:24px}
+    .writing{padding:32px 24px}
+    .project{grid-template-columns:1fr;padding:24px}
+    .project .link{grid-column:1;grid-row:auto;justify-self:start;margin-top:8px}
+    .skills div{grid-template-columns:1fr;gap:2px}
+    section.block{padding:64px 0}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .loop .arc{animation:none;stroke-dashoffset:0}
+    .btn:hover{transform:none}
+  }
+</style>
+<!-- GoatCounter: privacy-friendly visitor stats. Dashboard: https://ebrarguclu.goatcounter.com -->
+<script data-goatcounter="https://ebrarguclu.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#top">Ebrar Güçlü</a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <!-- <li><a href="#writing">Writing</a></li> -->
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="top">
+  <div class="wrap">
+    <header class="hero">
+      <div>
+        <h1>Why do people keep coming back?</h1>
+        <p>I'm <strong>Fethiye Ebrar Güçlü</strong>. I use data to understand how people behave inside products, and turn what I find into product and business decisions.</p>
+        <div class="actions">
+          <a class="btn primary" href="#projects">See my projects</a>
+          <!-- TODO: put your CV PDF in the repo as cv.pdf -->
+          <a class="btn" href="cv.pdf" target="_blank" rel="noopener" data-goatcounter-click="download-cv">Download CV</a>
+        </div>
+      </div>
+
+      <div class="loop" aria-hidden="true">
+        <svg viewBox="-80 0 520 360">
+          <path class="arc" d="M220.2 56.4 A130 130 0 0 1 303.6 139.8"/>
+          <path class="arc" d="M303.6 220.2 A130 130 0 0 1 220.2 303.6"/>
+          <path class="arc" d="M139.8 303.6 A130 130 0 0 1 56.4 220.2"/>
+          <path class="arc" d="M56.4 139.8 A130 130 0 0 1 139.8 56.4"/>
+          <circle class="node" cx="180" cy="50" r="8"/>
+          <circle class="node" cx="310" cy="180" r="8"/>
+          <circle class="node" cx="180" cy="310" r="8"/>
+          <circle class="node warm" cx="50" cy="180" r="8"/>
+          <text x="180" y="26" text-anchor="middle">Notice</text>
+          <text x="326" y="185">Try</text>
+          <text x="180" y="342" text-anchor="middle">Get value</text>
+          <text x="34" y="185" text-anchor="end">Return</text>
+        </svg>
+        <div class="avatar">EG
+          <!-- TODO: add your photo to the repo as profile.jpg -->
+          <img src="profile.jpg" alt="" onerror="this.remove()">
+        </div>
+      </div>
+    </header>
+  </div>
+
+  <section class="block" id="about">
+    <div class="wrap block-head">
+      <h2>About</h2>
+      <div>
+        <p class="lead">I'm a final-year Computer Science and Industrial Engineering double major at Sabancı University. The common thread in my work is simple: understand how people actually use a product, measure it, and turn the findings into changes a team can ship.</p>
+        <p class="lead">I've approached that from several sides. As a product intern I wrote PRDs and ran user tests, as a software engineer I built tools and secure systems, in my projects I used machine learning to explain what drives user ratings, and today I analyze production data at Henkel.</p>
+        <p class="lead">I'm looking for roles in <strong>game product</strong>, <strong>data science</strong>, <strong>business analytics</strong>, and <strong>fintech</strong>: teams where decisions are driven by user behavior and the results show up clearly in the numbers.</p>
+
+        <ul class="facts">
+          <li><b>3.63</b>/4.00 GPA</li>
+          <li><b>Merit</b> Scholarship</li>
+          <li><b>Top 633</b> nationally in the university entrance exam</li>
+        </ul>
+
+        <div class="skills">
+          <div><b>Data &amp; ML</b><span>Python, SQL, statistical analysis, scikit-learn, LightGBM, XGBoost, SHAP</span></div>
+          <div><b>Product</b><span>PRD writing, user flow design, user testing, Agile</span></div>
+          <div><b>Engineering</b><span>C++, Java, JavaScript, PHP, Git, Linux</span></div>
+          <div><b>Databases</b><span>MySQL, MongoDB</span></div>
+          <div><b>Languages</b><span>Turkish (native), English (fluent)</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="experience">
+    <div class="wrap block-head">
+      <h2>Experience</h2>
+      <ol class="timeline">
+        <li class="now">
+          <div class="when">Oct 2026 – Present</div>
+          <h3>Digital Engineer</h3>
+          <div class="org">Henkel, Gebze Plant</div>
+          <ul>
+            <li>Collect, analyze, and report machine and test-equipment data.</li>
+            <li>Present data-driven insights to international teams and support factory-level digital initiatives.</li>
+          </ul>
+        </li>
+        <li>
+          <div class="when">Apr – Oct 2026</div>
+          <h3>Erasmus+ Exchange Student</h3>
+          <div class="org">Karlsruhe Institute of Technology, Germany</div>
+          <ul>
+            <li>Computer Science and Industrial Engineering coursework; led the evaluation of an Airbnb host rating prediction model.</li>
+          </ul>
+        </li>
+        <li>
+          <div class="when">Aug 2025 – Apr 2026</div>
+          <h3>Software Engineering Intern, then Scholar</h3>
+          <div class="org">TÜBİTAK BİLGEM, MA3 Cryptography</div>
+          <ul>
+            <li>Built an automated report generator that cut report writing from 1–2 hours to minutes, then proposed a more advanced version the team adopted.</li>
+            <li>Integrated backend services and PKI libraries across operating systems; contributed to MPC protocols and secure communication in C++ (RSA, ECC).</li>
+          </ul>
+        </li>
+        <li>
+          <div class="when">Jun – Aug 2025</div>
+          <h3>Product Management Intern</h3>
+          <div class="org">Mükellef (Workhy)</div>
+          <ul>
+            <li>Redesigned company-formation onboarding for the USA, UK, and Turkey; wrote PRDs aligning legal, design, and engineering.</li>
+            <li>Replaced repeated back-and-forth for missing information with a structured intake flow that collects everything upfront.</li>
+            <li>Ran user tests on internal tools and shipped improvements; built Robomotion automation workflows.</li>
+          </ul>
+        </li>
+        <li>
+          <div class="when">Mar – Apr 2024</div>
+          <h3>Intern</h3>
+          <div class="org">DenizBank, DenizAkademi</div>
+          <ul>
+            <li>Rotational program across digital banking operations, data analysis, and marketing.</li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="block" id="projects">
+    <div class="wrap block-head">
+      <h2>Projects</h2>
+      <div class="projects">
+        <article class="project feature">
+          <h3>Airbnb Host Rating Prediction</h3>
+          <p>What actually drives a host's rating? Built ML models on listing, noise-map, and review-sentiment data, then used ablation studies and SHAP to find the factors that matter most and turn them into coaching advice for hosts.</p>
+          <div class="tags"><span>Python</span><span>LightGBM</span><span>XGBoost</span><span>CatBoost</span><span>SHAP</span></div>
+          <!-- TODO: repo link -->
+          <a class="link" href="https://github.com/ebrarguclu/airbnb-host-rating-prediction" target="_blank" rel="noopener" data-goatcounter-click="project-airbnb">View on GitHub</a>
+        </article>
+        <article class="project">
+          <h3>Beauty Product Database</h3>
+          <p>A skincare and makeup web app with reviews, automatic allergen warnings that check a user's skin profile against product ingredients, brand performance reports, and a MongoDB support-ticket system for users and admins.</p>
+          <div class="tags"><span>MySQL</span><span>MongoDB</span><span>PHP</span><span>Triggers &amp; stored procedures</span></div>
+          <!-- TODO: repo link -->
+          <!-- <a class="link" href="#" target="_blank" rel="noopener">View on GitHub</a> -->
+        </article>
+        <article class="project">
+          <h3>Air Pollution &amp; Mental Health</h3>
+          <p>Statistical and machine learning analysis of how air pollution metrics relate to mental health indicators.</p>
+          <div class="tags"><span>Python</span><span>Statistics</span><span>Machine learning</span></div>
+          <a class="link" href="https://github.com/ebrarguclu/DSA210-Term-Project" target="_blank" rel="noopener" data-goatcounter-click="project-air-pollution">View on GitHub</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Writing section hidden until the first Notion post is published. Remove the comment markers to show it again.
+  <section class="block" id="writing">
+    <div class="wrap">
+      <div class="writing">
+        <div>
+          <h3>Notes on game products</h3>
+          <p>I write about how games keep players coming back: onboarding, progression, retention loops, and the product decisions behind them.</p>
+          <!~~ TODO: your public Notion link ~~>
+          <a class="btn" href="#" target="_blank" rel="noopener" style="margin-top:24px">Read on Notion</a>
+        </div>
+        <ul>
+          <li>Breakdowns of onboarding and first-session design</li>
+          <li>Retention and progression loops</li>
+          <li>Metrics I'd track, and why</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  -->
+
+  <section class="block">
+    <div class="wrap block-head">
+      <h2>Leadership</h2>
+      <ul class="lead-list">
+        <li><b>PR Team Coordinator, Industrial Engineering Club</b><span>2024 – Present. Led marketing and logistics for case-study sessions with BCG and Simon-Kucher.</span></li>
+        <li><b>Ambassador, SUCOOL Startup Company League</b><span>2024 – 2025. Organized events connecting 50+ startups with mentors and investors.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="block contact" id="contact">
+    <div class="wrap">
+      <h2>Let's build something people come back to.</h2>
+      <p>I'm open to roles in game product, data science, business analytics, and fintech. Email is the fastest way to reach me.</p>
+      <div class="actions">
+        <a class="btn primary" href="mailto:fethiyeebrarguclu@gmail.com" data-goatcounter-click="contact-email">Email me</a>
+        <!-- TODO: your LinkedIn URL -->
+        <a class="btn" href="#" target="_blank" rel="noopener" data-goatcounter-click="contact-linkedin">LinkedIn</a>
+        <a class="btn" href="https://github.com/ebrarguclu" target="_blank" rel="noopener" data-goatcounter-click="contact-github">GitHub</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 Fethiye Ebrar Güçlü</div>
+</footer>
+
+</body>
+</html>
